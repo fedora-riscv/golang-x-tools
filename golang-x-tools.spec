@@ -63,9 +63,9 @@ Summary:        Go programming language source code analysis tool
 Provides:       golang(%{goipath}/cmd/gotype) = %{version}-%{release}
 
 %description -n golang-gotype
-The gotype command does syntactic and semantic analysis of Go files and
-packages like the front-end of a Go compiler. Errors are reported if the
-analysis fails; otherwise gotype is quiet.
+The gotype command, like the front-end of a Go compiler, parses and type-checks
+a single Go package. Errors are reported if the analysis fails; otherwise
+gotype is quiet (unless -v is set).
 
 %package -n golang-html2article
 Summary:        Tool for creating articles from HTML files
@@ -73,7 +73,7 @@ Provides:       golang(%{goipath}/cmd/html2article) = %{version}-%{release}
 
 %description -n golang-html2article
 This program takes an HTML file and outputs a corresponding article file
-in present format. See: code.google.com/p/go.tools/present
+in present format. See: golang.org/x/tools/present
 
 %package        callgraph
 Summary:        Tool for reporting the call graph of a Go program
@@ -82,7 +82,7 @@ Provides:       golang(%{goipath}/cmd/callgraph) = %{version}-%{release}
 Obsoletes:      golang-googlecode-tools-callgraph < 0-28
 
 %description    callgraph
-Tool for reporting the call graph of a Go program.
+%{summary}.
 
 %package        compilebench
 Summary:        Benchmarks the speed of the Go compiler
@@ -96,7 +96,7 @@ Obsoletes:      golang-googlecode-tools-compilebench < 0-28
 See https://godoc.org/golang.org/x/tools/cmd/compilebench for more information.
 
 %package        cover
-Summary:        Program for analyzing the coverage profiles
+Summary:        Tool for analyzing Go coverage profiles
 Provides:       golang(%{goipath}/cmd/cover) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-cover < 0-28
@@ -107,7 +107,7 @@ Obsoletes:      golang-googlecode-tools-cover < 0-28
 See https://godoc.org/golang.org/x/tools/cmd/cover for more information.
 
 %package        digraph
-Summary:        Tool performs queries over unlabelled directed graphs represented in text form
+Summary:        Tool for queries over unlabelled directed graphs in text form
 Provides:       golang(%{goipath}/cmd/digraph) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-digraph < 0-28
@@ -117,32 +117,34 @@ The digraph command performs queries over unlabelled directed graphs
 represented in text form.
 
 %package        gorename
-Summary:        Tool for reporting the call graph of a Go program
+Summary:        Tool for precise type-safe renaming of identifiers in Go code
 Provides:       golang(%{goipath}/cmd/gorename) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-gorename < 0-28
 
 %description    gorename
-Tool for reporting the call graph of a Go program.
+The gorename command performs precise type-safe renaming of identifiers in Go
+source code.
 
 %package        stringer
-Summary:        Tool to automate the creation of methods that satisfy the fmt.Stringer interface
+Summary:        Tool to automate creating methods satisfying the fmt.Stringer interface
 Provides:       golang(%{goipath}/cmd/stringer) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-stringer < 0-28
 
 %description    stringer
-tool to automate the creation of methods that satisfy the fmt.Stringer
-interface.
+Stringer is a tool to automate the creation of methods that satisfy the
+fmt.Stringer interface.
 
 %package        godex
-Summary:        Dump exported information for Go programming language
+Summary:        Tool to dump exported information for Go packages or objects
 Provides:       golang(%{goipath}/cmd/godex) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-godex < 0-28
 
 %description    godex
-%{summary}.
+The godex command prints (dumps) exported information of packages or selected
+package objects.
 
 See https://godoc.org/golang.org/x/tools/cmd/godex for more information.
 
@@ -206,9 +208,11 @@ Provides:       golang(%{goipath}/cmd/go-contrib-init) = %{version}-%{release}
 Obsoletes:      golang-googlecode-tools-go-contrib-init < 0-28
 
 %description    go-contrib-init
-%{summary}.
+The go-contrib-init command helps new Go contributors get their development
+environment set up for the Go contribution process.
 
-See https://godoc.org/golang.org/x/tools/cmd/go-contrib-init for more information.
+It aims to be a complement or alternative to
+https://golang.org/doc/contribute.html.
 
 %package        goimports
 Summary:        Go programming language import line formatter
@@ -222,7 +226,7 @@ Obsoletes:      golang-googlecode-tools-goimports < 0-28
 See https://godoc.org/golang.org/x/tools/cmd/goimports for more information.
 
 %package        gomvpkg
-Summary:        Helps new Go contributors get their development environment set up
+Summary:        Tool to move Go packages, updating import declarations
 Provides:       golang(%{goipath}/cmd/gomvpkg) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-gomvpkg < 0-28
@@ -255,7 +259,7 @@ Obsoletes:      golang-googlecode-tools-guru < 0-28
 See https://godoc.org/golang.org/x/tools/cmd/guru for more information.
 
 %package        present
-Summary:        Slide and Article Presentation
+Summary:        Display slide presentations and articles
 Provides:       golang(%{goipath}/cmd/present) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-present < 0-28
@@ -266,7 +270,7 @@ Obsoletes:      golang-googlecode-tools-present < 0-28
 See https://godoc.org/golang.org/x/tools/cmd/present for more information.
 
 %package        splitdwarf
-Summary:        Uncompresses and copies the DWARF segment of a Mach-O executable into the "dSYM" file
+Summary:        Uncompress and copy the DWARF segment of a Mach-O executable into the "dSYM" file
 Provides:       golang(%{goipath}/cmd/splitdwarf) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-splitdwarf < 0-28
@@ -277,7 +281,7 @@ Obsoletes:      golang-googlecode-tools-splitdwarf < 0-28
 See https://godoc.org/golang.org/x/tools/cmd/splitdwarf for more information.
 
 %package        ssadump
-Summary:        Display and interpreting SSA form of Go programs
+Summary:        Tool for displaying and interpreting the SSA form of Go programs
 Provides:       golang(%{goipath}/cmd/ssadump) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-ssadump < 0-28
@@ -286,7 +290,7 @@ Obsoletes:      golang-googlecode-tools-ssadump < 0-28
 %{summary}.
 
 %package        stress
-Summary:        Catches sporadic failures
+Summary:        Tool for catching sporadic failures
 Provides:       golang(%{goipath}/cmd/stress) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-stress < 0-28
