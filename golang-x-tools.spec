@@ -8,6 +8,11 @@
 
 %gometa
 
+# Remove in F33:
+%global godevelheader %{expand:
+Obsoletes:      golang-golangorg-tools-devel < 0-28
+}
+
 %global common_description %{expand:
 This package holds the source for various tools that support the Go programming
 language.
@@ -28,7 +33,7 @@ Single Assignment form (SSA) representation for Go programs.}
 
 Name:           %{goname}
 Version:        0
-Release:        28%{?dist}
+Release:        29%{?dist}
 Summary:        Various packages and tools that support the Go programming language
 
 # Upstream license specification: BSD-3-Clause
@@ -372,6 +377,9 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 %gopkgfiles
 
 %changelog
+* Fri Jul 05 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 0-29.20190622git2e9de47
+- Add Obsoletes for old name
+
 * Tue Apr 16 16:42:02 CEST 2019 Robert-André Mauchin <zebob.m@gmail.com> - 0-28.20190622git2e9de47
 - Bump to commit 2e9de471ebd3a3af420e4dd35a826936b94da7f6
 
