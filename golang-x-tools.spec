@@ -78,6 +78,8 @@ in present format. See: code.google.com/p/go.tools/present
 %package        callgraph
 Summary:        Tool for reporting the call graph of a Go program
 Provides:       golang(%{goipath}/cmd/callgraph) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-callgraph < 0-28
 
 %description    callgraph
 Tool for reporting the call graph of a Go program.
@@ -85,6 +87,8 @@ Tool for reporting the call graph of a Go program.
 %package        compilebench
 Summary:        Benchmarks the speed of the Go compiler
 Provides:       golang(%{goipath}/cmd/compilebench) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-compilebench < 0-28
 
 %description    compilebench
 %{summary}.
@@ -94,6 +98,8 @@ See https://godoc.org/golang.org/x/tools/cmd/compilebench for more information.
 %package        cover
 Summary:        Program for analyzing the coverage profiles
 Provides:       golang(%{goipath}/cmd/cover) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-cover < 0-28
 
 %description    cover
 %{summary}.
@@ -103,6 +109,8 @@ See https://godoc.org/golang.org/x/tools/cmd/cover for more information.
 %package        digraph
 Summary:        Tool performs queries over unlabelled directed graphs represented in text form
 Provides:       golang(%{goipath}/cmd/digraph) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-digraph < 0-28
 
 %description    digraph
 The digraph command performs queries over unlabelled directed graphs
@@ -111,6 +119,8 @@ represented in text form.
 %package        gorename
 Summary:        Tool for reporting the call graph of a Go program
 Provides:       golang(%{goipath}/cmd/gorename) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-gorename < 0-28
 
 %description    gorename
 Tool for reporting the call graph of a Go program.
@@ -118,6 +128,8 @@ Tool for reporting the call graph of a Go program.
 %package        stringer
 Summary:        Tool to automate the creation of methods that satisfy the fmt.Stringer interface
 Provides:       golang(%{goipath}/cmd/stringer) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-stringer < 0-28
 
 %description    stringer
 tool to automate the creation of methods that satisfy the fmt.Stringer
@@ -126,6 +138,8 @@ interface.
 %package        godex
 Summary:        Dump exported information for Go programming language
 Provides:       golang(%{goipath}/cmd/godex) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-godex < 0-28
 
 %description    godex
 %{summary}.
@@ -135,6 +149,8 @@ See https://godoc.org/golang.org/x/tools/cmd/godex for more information.
 %package        benchcmp
 Summary:        Displays performance changes between benchmarks for the Go programming language
 Provides:       golang(%{goipath}/cmd/benchcmp) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-benchcmp < 0-28
 
 %description    benchcmp
 %{summary}.
@@ -144,6 +160,8 @@ See https://godoc.org/golang.org/x/tools/cmd/benchcmp for more information.
 %package        bundle
 Summary:        Creates a single-source-file version of a source package
 Provides:       golang(%{goipath}/cmd/bundle) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-bundle < 0-28
 
 %description    bundle
 %{summary}.
@@ -153,6 +171,8 @@ See https://godoc.org/golang.org/x/tools/cmd/bundle for more information.
 %package        eg
 Summary:        Example-based refactoring for the Go programming language
 Provides:       golang(%{goipath}/cmd/eg) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-eg < 0-28
 
 %description    eg
 %{summary}.
@@ -162,6 +182,8 @@ See `eg -help` for more information.
 %package        fiximports
 Summary:        Fixes import declarations to use the canonical import path
 Provides:       golang(%{goipath}/cmd/fiximports) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-fiximports < 0-28
 
 %description    fiximports
 %{summary}.
@@ -169,6 +191,8 @@ Provides:       golang(%{goipath}/cmd/fiximports) = %{version}-%{release}
 %package        getgo
 Summary:        Installs Go to the user's system
 Provides:       golang(%{goipath}/cmd/getgo) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-getgo < 0-28
 
 %description    getgo
 %{summary}.
@@ -178,6 +202,8 @@ See https://godoc.org/golang.org/x/tools/cmd/getgo for more information.
 %package        go-contrib-init
 Summary:        Helps new Go contributors get their development environment set up
 Provides:       golang(%{goipath}/cmd/go-contrib-init) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-go-contrib-init < 0-28
 
 %description    go-contrib-init
 %{summary}.
@@ -187,6 +213,8 @@ See https://godoc.org/golang.org/x/tools/cmd/go-contrib-init for more informatio
 %package        goimports
 Summary:        Go programming language import line formatter
 Provides:       golang(%{goipath}/cmd/goimports) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-goimports < 0-28
 
 %description    goimports
 %{summary}.
@@ -196,6 +224,8 @@ See https://godoc.org/golang.org/x/tools/cmd/goimports for more information.
 %package        gomvpkg
 Summary:        Helps new Go contributors get their development environment set up
 Provides:       golang(%{goipath}/cmd/gomvpkg) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-gomvpkg < 0-28
 
 %description    gomvpkg
 %{summary}.
@@ -205,6 +235,8 @@ See https://godoc.org/golang.org/x/tools/cmd/gomvpkg for more information.
 %package        gopls
 Summary:        LSP server for Go
 Provides:       golang(%{goipath}/cmd/gopls) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-gopls < 0-28
 
 %description    gopls
 %{summary}.
@@ -214,6 +246,8 @@ See https://godoc.org/golang.org/x/tools/cmd/gopls for more information.
 %package        guru
 Summary:        Tool for answering questions about Go source code
 Provides:       golang(%{goipath}/cmd/guru) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-guru < 0-28
 
 %description    guru
 %{summary}.
@@ -223,6 +257,8 @@ See https://godoc.org/golang.org/x/tools/cmd/guru for more information.
 %package        present
 Summary:        Slide and Article Presentation
 Provides:       golang(%{goipath}/cmd/present) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-present < 0-28
 
 %description    present
 %{summary}.
@@ -232,6 +268,8 @@ See https://godoc.org/golang.org/x/tools/cmd/present for more information.
 %package        splitdwarf
 Summary:        Uncompresses and copies the DWARF segment of a Mach-O executable into the "dSYM" file
 Provides:       golang(%{goipath}/cmd/splitdwarf) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-splitdwarf < 0-28
 
 %description    splitdwarf
 %{summary}.
@@ -241,6 +279,8 @@ See https://godoc.org/golang.org/x/tools/cmd/splitdwarf for more information.
 %package        ssadump
 Summary:        Display and interpreting SSA form of Go programs
 Provides:       golang(%{goipath}/cmd/ssadump) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-ssadump < 0-28
 
 %description    ssadump
 %{summary}.
@@ -248,6 +288,8 @@ Provides:       golang(%{goipath}/cmd/ssadump) = %{version}-%{release}
 %package        stress
 Summary:        Catches sporadic failures
 Provides:       golang(%{goipath}/cmd/stress) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-stress < 0-28
 
 %description    stress
 %{summary}.
@@ -257,6 +299,8 @@ See https://godoc.org/golang.org/x/tools/cmd/stress for more information.
 %package        toolstash
 Summary:        Provides a way to save, run, and restore a known good copy of the Go toolchain
 Provides:       golang(%{goipath}/cmd/toolstash) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-toolstash < 0-28
 
 %description    toolstash
 %{summary}.
@@ -266,6 +310,8 @@ See https://godoc.org/golang.org/x/tools/cmd/toolstash for more information.
 %package        goyacc
 Summary:        Goyacc is a version of yacc for Go
 Provides:       golang(%{goipath}/cmd/goyacc) = %{version}-%{release}
+# Remove in F33:
+Obsoletes:      golang-googlecode-tools-goyacc < 0-28
 
 %description    goyacc
 %{summary}.
@@ -378,7 +424,7 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 
 %changelog
 * Fri Jul 05 2019 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 0-29.20190622git2e9de47
-- Add Obsoletes for old name
+- Add Obsoletes for old names
 
 * Tue Apr 16 16:42:02 CEST 2019 Robert-André Mauchin <zebob.m@gmail.com> - 0-28.20190622git2e9de47
 - Bump to commit 2e9de471ebd3a3af420e4dd35a826936b94da7f6
