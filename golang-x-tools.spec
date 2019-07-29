@@ -343,7 +343,7 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 
 %if %{with check}
 %check
-%gocheck
+%gocheck -d cmd/stringer -d imports
 %endif
 
 %files -n golang-godoc
