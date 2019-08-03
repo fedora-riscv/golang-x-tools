@@ -4,7 +4,7 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-%global commit          2e9de471ebd3a3af420e4dd35a826936b94da7f6
+%global commit          1d1727260058c6d58ebfdeb982c4657342282355
 
 %gometa
 
@@ -33,7 +33,7 @@ Single Assignment form (SSA) representation for Go programs.}
 
 Name:           %{goname}
 Version:        0
-Release:        30%{?dist}
+Release:        31%{?dist}
 Summary:        Various packages and tools that support the Go programming language
 
 # Upstream license specification: BSD-3-Clause
@@ -45,6 +45,7 @@ BuildRequires:  golang(golang.org/x/net/context/ctxhttp)
 BuildRequires:  golang(golang.org/x/net/html)
 BuildRequires:  golang(golang.org/x/net/html/atom)
 BuildRequires:  golang(golang.org/x/net/websocket)
+BuildRequires:  golang(golang.org/x/sync/errgroup)
 
 %description
 %{common_description}
@@ -427,6 +428,9 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 %gopkgfiles
 
 %changelog
+* Sat Aug 03 00:40:06 CEST 2019 Robert-André Mauchin <zebob.m@gmail.com> - 0-31.20190802git1d17272
+- Bump to commit 1d1727260058c6d58ebfdeb982c4657342282355
+
 * Thu Jul 25 2019 Fedora Release Engineering <releng@fedoraproject.org> - 0-30
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
