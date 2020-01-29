@@ -33,7 +33,7 @@ Single Assignment form (SSA) representation for Go programs.}
 
 Name:           %{goname}
 Version:        0
-Release:        31%{?dist}
+Release:        32%{?dist}
 Summary:        Various packages and tools that support the Go programming language
 
 # Upstream license specification: BSD-3-Clause
@@ -428,6 +428,9 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 %gopkgfiles
 
 %changelog
+* Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0-32
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Sat Aug 03 00:40:06 CEST 2019 Robert-André Mauchin <zebob.m@gmail.com> - 0-31.20190802git1d17272
 - Bump to commit 1d1727260058c6d58ebfdeb982c4657342282355
 
