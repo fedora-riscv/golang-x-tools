@@ -4,7 +4,7 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-%global commit          1d1727260058c6d58ebfdeb982c4657342282355
+%global commit          4abfd4a1628e20e7256052915dacf376269c05eb
 
 %gometa
 
@@ -29,11 +29,11 @@ Single Assignment form (SSA) representation for Go programs.}
 %global golicenses      LICENSE PATENTS
 %global godocs          AUTHORS CONTRIBUTING.md CONTRIBUTORS README.md
 
-%global commands benchcmp bundle callgraph compilebench cover digraph eg fiximports getgo go-contrib-init godex godoc goimports gopls gomvpkg gorename gotype goyacc guru html2article present splitdwarf ssadump stress stringer toolstash
+%global commands benchcmp bundle callgraph compilebench cover digraph eg fiximports getgo go-contrib-init godex godoc goimports gomvpkg gorename gotype goyacc guru html2article present splitdwarf ssadump stress stringer toolstash
 
 Name:           %{goname}
 Version:        0
-Release:        32%{?dist}
+Release:        33%{?dist}
 Summary:        Various packages and tools that support the Go programming language
 
 # Upstream license specification: BSD-3-Clause
@@ -41,11 +41,18 @@ License:        BSD
 URL:            %{gourl}
 Source0:        %{gosource}
 
+BuildRequires:  golang(github.com/sergi/go-diff/diffmatchpatch)
+BuildRequires:  golang(golang.org/x/mod/modfile)
 BuildRequires:  golang(golang.org/x/net/context/ctxhttp)
 BuildRequires:  golang(golang.org/x/net/html)
 BuildRequires:  golang(golang.org/x/net/html/atom)
 BuildRequires:  golang(golang.org/x/net/websocket)
 BuildRequires:  golang(golang.org/x/sync/errgroup)
+BuildRequires:  golang(golang.org/x/xerrors)
+BuildRequires:  golang(honnef.co/go/tools/simple)
+BuildRequires:  golang(honnef.co/go/tools/staticcheck)
+BuildRequires:  golang(honnef.co/go/tools/stylecheck)
+BuildRequires:  golang(mvdan.cc/xurls)
 
 %description
 %{common_description}
@@ -327,12 +334,13 @@ See https://godoc.org/golang.org/x/tools/cmd/goyacc for more information.
 
 %prep
 %goprep
-
+find . -type f -name "*.go" -exec sed -i "s|mvdan.cc/xurls/v2|mvdan.cc/xurls|" "{}" +;
 
 %build
 for cmd in %commands; do
   %gobuild -o %{gobuilddir}/bin/$(basename $cmd) %{goipath}/cmd/$cmd
 done
+%gobuild -o %{gobuilddir}/bin/gopls %{goipath}/gopls
 
 %install
 %gopkginstall
@@ -344,7 +352,7 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 
 %if %{with check}
 %check
-%gocheck -d cmd/stringer -d imports
+%gocheck -d cmd/stringer -d imports -t internal/lsp
 %endif
 
 %files -n golang-godoc
@@ -428,6 +436,9 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 %gopkgfiles
 
 %changelog
+* Wed Feb 05 18:48:07 CET 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0-33.20200205git4abfd4a
+- Bump to commit 4abfd4a1628e20e7256052915dacf376269c05eb
+
 * Wed Jan 29 2020 Fedora Release Engineering <releng@fedoraproject.org> - 0-32
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
 
