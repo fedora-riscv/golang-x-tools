@@ -4,7 +4,7 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-%global commit          4abfd4a1628e20e7256052915dacf376269c05eb
+%global commit          5fc56a9a2104ae31a4ac1987ccb98f30dd6d182b
 
 %gometa
 
@@ -33,7 +33,7 @@ Single Assignment form (SSA) representation for Go programs.}
 
 Name:           %{goname}
 Version:        0
-Release:        33%{?dist}
+Release:        34%{?dist}
 Summary:        Various packages and tools that support the Go programming language
 
 # Upstream license specification: BSD-3-Clause
@@ -42,6 +42,10 @@ URL:            %{gourl}
 Source0:        %{gosource}
 
 BuildRequires:  golang(github.com/sergi/go-diff/diffmatchpatch)
+BuildRequires:  golang(github.com/yuin/goldmark)
+BuildRequires:  golang(github.com/yuin/goldmark/ast)
+BuildRequires:  golang(github.com/yuin/goldmark/renderer/html)
+BuildRequires:  golang(github.com/yuin/goldmark/text)
 BuildRequires:  golang(golang.org/x/mod/modfile)
 BuildRequires:  golang(golang.org/x/net/context/ctxhttp)
 BuildRequires:  golang(golang.org/x/net/html)
@@ -246,6 +250,7 @@ See https://godoc.org/golang.org/x/tools/cmd/gomvpkg for more information.
 
 %package        gopls
 Summary:        LSP server for Go
+Version:        0.4.0
 Provides:       golang(%{goipath}/cmd/gopls) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-gopls < 0-28
@@ -436,6 +441,9 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 %gopkgfiles
 
 %changelog
+* Sun Apr 19 2020 Elliott Sales de Andrade <quantum.analyst@gmail.com> - 0-34.20200419git5fc56a9
+- Bump to commit 5fc56a9a2104ae31a4ac1987ccb98f30dd6d182b
+
 * Wed Feb 05 18:48:07 CET 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0-33.20200205git4abfd4a
 - Bump to commit 4abfd4a1628e20e7256052915dacf376269c05eb
 
