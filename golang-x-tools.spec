@@ -4,7 +4,7 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-%global commit          d56e4e40bc9dd04985b18718e43413d9f4399fb5
+%global commit          2972602ec4f03242ffbc7f6ab020721687ed5fbe
 
 %gometa
 
@@ -28,7 +28,7 @@ Single Assignment form (SSA) representation for Go programs.}
 
 Name:           %{goname}
 Version:        0
-Release:        36%{?dist}
+Release:        37%{?dist}
 Summary:        Various packages and tools that support the Go programming language
 
 # Upstream license specification: BSD-3-Clause
@@ -36,6 +36,7 @@ License:        BSD
 URL:            %{gourl}
 Source0:        %{gosource}
 
+BuildRequires:  golang(github.com/sanity-io/litter)
 BuildRequires:  golang(github.com/sergi/go-diff/diffmatchpatch)
 BuildRequires:  golang(github.com/yuin/goldmark)
 BuildRequires:  golang(github.com/yuin/goldmark/ast)
@@ -49,6 +50,7 @@ BuildRequires:  golang(golang.org/x/net/html)
 BuildRequires:  golang(golang.org/x/net/html/atom)
 BuildRequires:  golang(golang.org/x/net/websocket)
 BuildRequires:  golang(golang.org/x/sync/errgroup)
+BuildRequires:  golang(golang.org/x/sys/execabs)
 BuildRequires:  golang(golang.org/x/xerrors)
 BuildRequires:  golang(honnef.co/go/tools/simple)
 BuildRequires:  golang(honnef.co/go/tools/staticcheck)
@@ -439,6 +441,9 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 %gopkgfiles
 
 %changelog
+* Sat Jan 23 15:38:43 CET 2021 Robert-André Mauchin <zebob.m@gmail.com> - 0-37.20210123git2972602
+- Bump to commit 2972602ec4f03242ffbc7f6ab020721687ed5fbe
+
 * Fri Sep 18 03:42:12 CEST 2020 Robert-André Mauchin <zebob.m@gmail.com> - 0-36.20200918gitd56e4e4
 - Bump to commit d56e4e40bc9dd04985b18718e43413d9f4399fb5
 
