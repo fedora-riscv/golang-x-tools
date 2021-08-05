@@ -4,7 +4,7 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-%global commit          2972602ec4f03242ffbc7f6ab020721687ed5fbe
+Version:                0.1.5
 
 %gometa
 
@@ -27,7 +27,6 @@ Single Assignment form (SSA) representation for Go programs.}
 %global commands benchcmp bundle callgraph compilebench cover digraph eg fiximports getgo go-contrib-init godex godoc goimports gomvpkg gorename gotype goyacc guru html2article present splitdwarf ssadump stress stringer toolstash
 
 Name:           %{goname}
-Version:        0
 Release:        %autorelease -p
 Summary:        Various packages and tools that support the Go programming language
 
@@ -40,6 +39,7 @@ BuildRequires:  golang(github.com/sanity-io/litter)
 BuildRequires:  golang(github.com/sergi/go-diff/diffmatchpatch)
 BuildRequires:  golang(github.com/yuin/goldmark)
 BuildRequires:  golang(github.com/yuin/goldmark/ast)
+BuildRequires:  golang(github.com/yuin/goldmark/parser)
 BuildRequires:  golang(github.com/yuin/goldmark/renderer/html)
 BuildRequires:  golang(github.com/yuin/goldmark/text)
 BuildRequires:  golang(golang.org/x/mod/modfile)
@@ -52,6 +52,8 @@ BuildRequires:  golang(golang.org/x/net/websocket)
 BuildRequires:  golang(golang.org/x/sync/errgroup)
 BuildRequires:  golang(golang.org/x/sys/execabs)
 BuildRequires:  golang(golang.org/x/xerrors)
+BuildRequires:  golang(honnef.co/go/tools/analysis/lint)
+BuildRequires:  golang(honnef.co/go/tools/quickfix)
 BuildRequires:  golang(honnef.co/go/tools/simple)
 BuildRequires:  golang(honnef.co/go/tools/staticcheck)
 BuildRequires:  golang(honnef.co/go/tools/stylecheck)
@@ -250,7 +252,6 @@ See https://godoc.org/golang.org/x/tools/cmd/gomvpkg for more information.
 
 %package        gopls
 Summary:        LSP server for Go
-Version:        0.4.0
 Provides:       golang(%{goipath}/cmd/gopls) = %{version}-%{release}
 # Remove in F33:
 Obsoletes:      golang-googlecode-tools-gopls < 0-28
@@ -357,7 +358,7 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 
 %if %{with check}
 %check
-%gocheck -d cmd/stringer -d imports -t internal/lsp
+%gocheck -t cmd -d imports -t internal/lsp -d internal/imports -t gopls/internal
 %endif
 
 %files -n golang-godoc
