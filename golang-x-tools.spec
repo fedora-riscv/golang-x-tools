@@ -4,7 +4,7 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-Version:                0.1.5
+Version:                0.1.8
 
 %gometa
 
@@ -34,31 +34,6 @@ Summary:        Various packages and tools that support the Go programming langu
 License:        BSD
 URL:            %{gourl}
 Source0:        %{gosource}
-
-BuildRequires:  golang(github.com/sanity-io/litter)
-BuildRequires:  golang(github.com/sergi/go-diff/diffmatchpatch)
-BuildRequires:  golang(github.com/yuin/goldmark)
-BuildRequires:  golang(github.com/yuin/goldmark/ast)
-BuildRequires:  golang(github.com/yuin/goldmark/parser)
-BuildRequires:  golang(github.com/yuin/goldmark/renderer/html)
-BuildRequires:  golang(github.com/yuin/goldmark/text)
-BuildRequires:  golang(golang.org/x/mod/modfile)
-BuildRequires:  golang(golang.org/x/mod/module)
-BuildRequires:  golang(golang.org/x/mod/semver)
-BuildRequires:  golang(golang.org/x/net/context/ctxhttp)
-BuildRequires:  golang(golang.org/x/net/html)
-BuildRequires:  golang(golang.org/x/net/html/atom)
-BuildRequires:  golang(golang.org/x/net/websocket)
-BuildRequires:  golang(golang.org/x/sync/errgroup)
-BuildRequires:  golang(golang.org/x/sys/execabs)
-BuildRequires:  golang(golang.org/x/xerrors)
-BuildRequires:  golang(honnef.co/go/tools/analysis/lint)
-BuildRequires:  golang(honnef.co/go/tools/quickfix)
-BuildRequires:  golang(honnef.co/go/tools/simple)
-BuildRequires:  golang(honnef.co/go/tools/staticcheck)
-BuildRequires:  golang(honnef.co/go/tools/stylecheck)
-BuildRequires:  golang(mvdan.cc/gofumpt/format)
-BuildRequires:  golang(mvdan.cc/xurls/v2)
 
 %description
 %{common_description}
@@ -341,6 +316,10 @@ See https://godoc.org/golang.org/x/tools/cmd/goyacc for more information.
 %prep
 %goprep
 find . -type f -name "*.go" -exec sed -i "s|mvdan.cc/xurls/v2|mvdan.cc/xurls|" "{}" +;
+
+
+%generate_buildrequires
+%go_generate_buildrequires
 
 %build
 for cmd in %commands; do
