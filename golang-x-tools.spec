@@ -5,6 +5,7 @@
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
 Version:                0.1.8
+%global commit          8d383106f7e7ea8a4a51f70b452d532c65fe6e3e
 
 %gometa
 
