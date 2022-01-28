@@ -339,10 +339,8 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 
 %if %{with check}
 %check
-%{_bindir}/gorename
 %gocheck -t cmd -d imports -t internal/lsp -d go/pointer -d internal/imports -t gopls/internal -d internal/packagesdriver -d go/packages
 %endif
-%{_bindir}/gorename
 
 %files -n golang-godoc
 %{_bindir}/godoc
