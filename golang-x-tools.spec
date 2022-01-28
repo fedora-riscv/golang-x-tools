@@ -4,8 +4,7 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-Version:                0.1.8
-%global commit          8d383106f7e7ea8a4a51f70b452d532c65fe6e3e
+Version:                0.1.9
 
 %gometa
 
@@ -35,6 +34,8 @@ Summary:        Various packages and tools that support the Go programming langu
 License:        BSD
 URL:            %{gourl}
 Source0:        %{gosource}
+
+BuildRequires:  golang-tests
 
 %description
 %{common_description}
@@ -338,7 +339,7 @@ mv %{buildroot}%{_bindir}/bundle %{buildroot}%{_bindir}/gobundle
 
 %if %{with check}
 %check
-%gocheck -t cmd -d imports -t internal/lsp -d internal/imports -t gopls/internal
+%gocheck -t cmd -d imports -t internal/lsp -d internal/imports -t gopls/internal -d internal/packagesdriver -d go/packages
 %endif
 
 %files -n golang-godoc
