@@ -4,7 +4,9 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-Version:                0.1.10
+Version:                0.9.1
+%global tag             gopls/v0.9.1
+%global distprefix      %{nil}
 
 %gometa
 
