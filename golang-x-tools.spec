@@ -4,9 +4,8 @@
 # https://github.com/golang/tools
 %global goipath         golang.org/x/tools
 %global forgeurl        https://github.com/golang/tools
-Version:                0.9.1
-%global tag             gopls/v0.9.1
-%global distprefix      %{nil}
+Epoch:                  1
+Version:                0.1.12
 
 %gometa
 
@@ -24,7 +23,7 @@ Packages include a type-checker for Go and an implementation of the Static
 Single Assignment form (SSA) representation for Go programs.}
 
 %global golicenses      LICENSE PATENTS
-%global godocs          AUTHORS CONTRIBUTING.md CONTRIBUTORS README.md
+%global godocs          CONTRIBUTING.md README.md
 
 %global commands benchcmp bundle callgraph compilebench cover digraph eg fiximports getgo go-contrib-init godex godoc goimports gomvpkg gorename gotype goyacc guru html2article present splitdwarf ssadump stress stringer toolstash
 
