@@ -29,7 +29,7 @@ Single Assignment form (SSA) representation for Go programs.}
 %global commands benchcmp bundle callgraph compilebench digraph eg file2fuzz fiximports getgo go-contrib-init godex godoc goimports gomvpkg gorename gotype goyacc guru html2article present splitdwarf ssadump stress stringer toolstash
 
 Name:           %{goname}
-Release:        %autorelease
+Release:        %{autorelease}.rv64_nc
 Summary:        Various packages and tools that support the Go programming language
 
 # Upstream license specification: BSD-3-Clause
